@@ -1,46 +1,12 @@
+import sys, os
+sys.path.append(os.pardir)  # 부모 디렉터리의 파일을 가져올 수 있도록 설정
 import numpy as np
-import matplotlib
+import matplotlib.pyplot as plt
+from mnist import load_mnist
+from PIL import Image
 
-def NAND(x1,x2):
-    x=np.array([x1,x2])
-    w = np.array([-0.5,-0.5])
-    b = 0.7
-    tmp = np.sum(w*x) +b
-    
-    if(tmp<=0):
-        return 0
-    else:
-        return 1
-    
-    
 
-def AND(x1,x2):
-    x=np.array([x1,x2])
-    w = np.array([0.5,0.5])
-    b = -0.7
-    tmp = np.sum(w*x) +b
-    
-    if(tmp<=0):
-        return 0
-    else:
-        return 1
-    
-
-def OR(x1,x2):
-    x=np.array([x1,x2])
-    w = np.array([0.5,0.5])
-    b = -0.2
-    tmp = np.sum(w*x) +b
-    
-    if(tmp<=0):
-        return 0
-    else:
-        return 1
-    
-def XOR(x1,x2):
-    s1 = NAND(x1,x2)
-    s2 = OR(x1,x2)
-    y = AND(s1,s2)
-    return y
-    
-print(XOR(0,0))
+testval = Image.open('test.png')
+plt.imshow(testval)
+print(testval.size)
+a = model.predict(np.reshape(testval, (1, 28, 28)))

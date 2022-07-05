@@ -94,9 +94,9 @@ class ReLu:
 class DL:
     def __init__(self, input_size, hidden_size, output_size,weight_init_std=0.01):#가중치 설정하기
         self.network = {} #네트워크 초기화
-        self.network['W1'] = weight_init_std * np.random.randn(input_size,hidden_size) #가우시안으로 분포를 만들고 계산하기
-        self.network['W2'] = weight_init_std * np.random.randn(hidden_size,50) #입력층이 784개이고 1번 은닉층이 100개
-        self.network['W3'] = weight_init_std * np.random.randn(50,10)
+        self.network['W1'] = np.random.randn(input_size,hidden_size) / np.sqrt(hidden_size) #가우시안으로 분포를 만들고 계산하기
+        self.network['W2'] = np.random.randn(hidden_size,50) / np.sqrt(50) #입력층이 784개이고 1번 은닉층이 100개
+        self.network['W3'] = np.random.randn(50,10) / np.sqrt(10)
         self.network['b1'] = np.zeros(hidden_size) 
         self.network['b2'] = np.zeros(50)
         self.network['b3'] = np.zeros(10)

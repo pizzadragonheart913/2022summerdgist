@@ -35,11 +35,11 @@ class CNN(torch.nn.Module):
     
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-model = torch.load('model.pt')
+model = torch.load('resnet18_mnist.pt')
 model.eval()
 
 with torch.no_grad():
-    image = Image.open('testnum/0.png').convert('L') ################### 여기에서 숫자만 바꾸기
+    image = Image.open('testnum/6.png').convert('L') ################### 여기에서 숫자만 바꾸기
     tf_toTensor = transforms.ToTensor() 
     img_RGB_tensor_from_PIL = tf_toTensor(image)
     print(img_RGB_tensor_from_PIL.size())
